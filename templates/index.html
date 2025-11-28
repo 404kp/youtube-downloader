@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Downloader Pro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fab fa-youtube"></i> YouTube Downloader</h1>
+            <p>Füge deine Links ein, lade Infos und wähle dein Format.</p>
+        </header>
+        
+        <div class="input-section">
+            <textarea id="urlInput" rows="5" placeholder="https://www.youtube.com/watch?v=...&#10;https://www.youtube.com/watch?v=..."></textarea>
+            <button id="loadBtn" onclick="loadVideos()"><i class="fas fa-search"></i> Videos laden</button>
+        </div>
+
+        <div id="loading" class="hidden">
+            <div class="loader"></div>
+            <p>Verarbeite...</p>
+        </div>
+
+        <div id="resultsSection" class="hidden">
+            <div class="actions-bar">
+                <button onclick="downloadAll('mp3')" class="action-btn mp3"><i class="fas fa-file-audio"></i> Alle als MP3 (ZIP)</button>
+                <button onclick="downloadAll('mp4')" class="action-btn mp4"><i class="fas fa-file-video"></i> Alle als MP4 (ZIP)</button>
+            </div>
+            <div id="videoList" class="video-list">
+                <!-- Video items will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
